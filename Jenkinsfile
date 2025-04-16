@@ -12,6 +12,18 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/arnold-andrade/hovering_button.git'
             }
         }
+        stage('Diagnostics') {
+    steps {
+        bat 'node --version'
+        bat 'npm --version'
+    }
+}
+        stage('Verify Content') {
+            steps {
+                bat 'dir'
+                bat 'dir data'
+            }
+        }
         stage('Deploy to Netlify') {
             steps {
                 bat 'npm install -g netlify-cli'
