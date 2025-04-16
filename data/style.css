@@ -1,0 +1,18 @@
+#hoverBox {
+    width: 200px;
+    height: 100px;
+    background-color: #3498db;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    margin: 100px auto;
+}
+
+#hoverBox.hovered {
+    background-color: #e74c3c;
+}
