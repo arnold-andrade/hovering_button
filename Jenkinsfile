@@ -12,12 +12,6 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/arnold-andrade/hovering_button.git'
             }
         }
-        stage('Diagnostics') {
-    steps {
-        bat 'node --version'
-        bat 'npm --version'
-    }
-}
         stage('Verify Content') {
             steps {
                 bat 'dir'
@@ -26,8 +20,10 @@ pipeline {
         }
         stage('Deploy to Netlify') {
             steps {
-                bat 'npm install -g netlify-cli'
-                bat 'set PATH=%PATH%;%APPDATA%\\npm && netlify deploy --prod --dir=data --auth %NETLIFY_AUTH_TOKEN% --site %NETLIFY_SITE_ID%'
+                // Install netlify-cli locally instead of globally
+                bat 'npm install netlify-cli'
+                // Use npx to run the locally installed netlify CLI
+                bat 'npx netlify deploy --prod --dir=data --auth %NETLIFY_AUTH_TOKEN% --site %NETLIFY_SITE_ID%'
             }
         }
     }
