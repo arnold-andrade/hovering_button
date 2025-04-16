@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/arnold-andrade/hovering_button.git'
+                git branch: 'main', url: '[https://github.com/arnold-andrade/hovering_button.git'](https://github.com/arnold-andrade/hovering_button.git')
             }
         }
         stage('Deploy to Netlify') {
