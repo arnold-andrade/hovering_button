@@ -1,0 +1,11 @@
+{
+  "name": "hovering-button",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "puppeteer": "^19.7.0"
+  }
+}
