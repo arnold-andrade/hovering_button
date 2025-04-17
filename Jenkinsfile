@@ -1,3 +1,4 @@
+// Updated with testing stages - timestamp: 11:03 AM
 pipeline {
     agent any
 
@@ -12,6 +13,19 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/arnold-andrade/hovering_button.git'
             }
         }
+
+        stage('Install Dependencies') {
+            steps {
+                bat 'npm install'
+            }
+        }
+        
+        stage('Run Tests') {
+            steps {
+                bat 'npm test'
+            }
+        }
+        
         stage('Verify Content') {
             steps {
                 bat 'dir'
